@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch --all --prune)",
+      "Bash(git checkout -b 1-physical-ai-textbook)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

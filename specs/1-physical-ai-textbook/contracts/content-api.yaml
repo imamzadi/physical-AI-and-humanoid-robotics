@@ -1,0 +1,71 @@
+# Content API Contract
+
+## Purpose
+This contract defines the interface for any potential content management or search functionality that may be integrated with the Physical AI & Humanoid Robotics textbook.
+
+## Endpoints
+
+### GET /api/content/search
+**Description**: Search across all textbook content
+**Parameters**:
+- `q` (string, required): Search query
+- `limit` (number, optional): Number of results to return (default: 10)
+- `module` (string, optional): Filter by specific module
+
+**Response**:
+```json
+{
+  "results": [
+    {
+      "id": "string",
+      "title": "string",
+      "url": "string",
+      "module": "string",
+      "excerpt": "string",
+      "relevance": "number"
+    }
+  ],
+  "total": "number"
+}
+```
+
+### GET /api/content/modules
+**Description**: Get list of all course modules
+**Response**:
+```json
+{
+  "modules": [
+    {
+      "id": "string",
+      "title": "string",
+      "weeks": "string",
+      "description": "string",
+      "content_count": "number"
+    }
+  ]
+}
+```
+
+### GET /api/content/module/{moduleId}
+**Description**: Get detailed information about a specific module
+**Path Parameters**:
+- `moduleId`: ID of the module
+
+**Response**:
+```json
+{
+  "id": "string",
+  "title": "string",
+  "weeks": "string",
+  "description": "string",
+  "learning_outcomes": ["string"],
+  "content_pages": [
+    {
+      "id": "string",
+      "title": "string",
+      "url": "string",
+      "position": "number"
+    }
+  ]
+}
+```

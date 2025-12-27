@@ -1,0 +1,87 @@
+.chatbotContainer { position: fixed; bottom: 25px; right: 25px; z-index: 999; }
+
+.selectionTooltip {
+  position: fixed; transform: translateX(-50%); padding: 8px 16px; background: #3b82f6;
+  color: white; border: none; border-radius: 20px; font-size: 0.8rem; font-weight: bold;
+  cursor: pointer; z-index: 10000; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.chatToggle {
+  width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; color: white;
+  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.chatWindow {
+  width: 380px; height: 580px; background: #0f172a; border-radius: 16px;
+  display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid #1e293b;
+}
+
+.chatHeader { padding: 16px 20px; background: #1e293b; display: flex; justify-content: space-between; align-items: center; }
+.headerInfo strong { display: block; color: #f1f5f9; font-size: 0.9rem; }
+.status { color: #10b981; font-size: 0.7rem; display: flex; align-items: center; gap: 4px; }
+.dot { width: 6px; height: 6px; background: #10b981; border-radius: 50%; }
+
+.headerActions { display: flex; gap: 12px; }
+.headerBtn { background: transparent; border: none; color: #64748b; cursor: pointer; font-size: 1rem; }
+.headerBtn:hover { color: white; }
+
+.chatMessages { flex: 1; padding: 20px; overflow-y: auto; background: #0f172a; display: flex; flex-direction: column; gap: 20px; }
+.message { max-width: 88%; }
+.user { align-self: flex-end; }
+.bot { align-self: flex-start; }
+
+.bubble { padding: 12px 16px; border-radius: 14px; font-size: 0.9rem; line-height: 1.6; }
+.user .bubble { background: #3b82f6; color: white; border-bottom-right-radius: 2px; }
+.bot .bubble { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; border-bottom-left-radius: 2px; }
+
+/* Redesigned Source Cards */
+.sourcesWrapper { margin-top: 14px; border-top: 1px solid #334155; padding-top: 10px; }
+.sourceTitle { font-size: 0.65rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+.sourcesList { display: flex; flex-wrap: wrap; gap: 6px; }
+.sourceLink {
+  font-size: 0.75rem; color: #93c5fd; text-decoration: none; 
+  background: #1e293b; border: 1px solid #334155; padding: 4px 10px; 
+  border-radius: 6px; transition: all 0.2s; max-width: 100%;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sourceLink:hover { background: #334155; border-color: #3b82f6; }
+.sourceLink span { color: #3b82f6; margin-right: 5px; font-weight: bold; }
+
+.viewMoreBtn { background: transparent; border: none; color: #3b82f6; font-size: 0.7rem; cursor: pointer; margin-top: 8px; }
+
+.typingIndicator { display: flex; gap: 4px; padding: 12px 16px; background: #1e293b; border-radius: 14px; width: fit-content; }
+.typingIndicator span { width: 6px; height: 6px; background: #3b82f6; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+.chatInputArea { padding: 16px; background: #1e293b; border-top: 1px solid #334155; display: flex; gap: 10px; }
+.chatInputArea input { flex: 1; background: #0f172a; border: 1px solid #334155; color: white; padding: 12px; border-radius: 8px; }
+.sendBtn { background: #3b82f6; border: none; color: white; width: 44px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+
+@media (max-width: 480px) {
+  .chatbotContainer {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .chatWindow {
+    /* Fixed width was cutting it off. Use viewport-relative units. */
+    width: calc(100vw - 20px); 
+    height: 80vh; /* Adjust height to not cover the whole screen if preferred */
+    bottom: 70px; /* Position above the toggle button */
+  }
+
+  /* Adjust bubble size for smaller screens */
+  .bubble {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  /* Make tooltip larger and easier to tap on mobile */
+  .selectionTooltip {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
